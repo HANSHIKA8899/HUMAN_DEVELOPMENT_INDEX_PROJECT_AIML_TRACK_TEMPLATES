@@ -45,6 +45,7 @@ The project is developed using **Python**, **Flask**, **Scikit-learn**, **Pandas
 ## 📂 Project Structure
 
 ```
+
 HUMAN_DEVELOPMENT_INDEX/
 │
 ├── Dataset/
@@ -67,6 +68,7 @@ HUMAN_DEVELOPMENT_INDEX/
 └── Training/
     ├── HDI.pkl
     └── HumDevIndex.ipynb
+
 ```
 
 ## ⚙ Installation
