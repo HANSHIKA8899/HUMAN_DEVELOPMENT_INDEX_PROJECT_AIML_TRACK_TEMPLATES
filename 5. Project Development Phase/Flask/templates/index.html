@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HDI Prediction</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="heading">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h1>HDI Prediction Dashboard</h1>
+
+<p>
+Enter the required details below to predict the
+Human Development Index using our Machine Learning model.
+</p>
+
+</div>
+
+<form action="/predict" method="POST">
+
+<div class="input-group">
+
+<i class="fa-solid fa-heart-pulse"></i>
+
+<input
+type="number"
+step="any"
+name="life_expectancy"
+placeholder="Life Expectancy at Birth "
+required>
+
+</div>
+
+<div class="input-group">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+<input
+type="number"
+step="any"
+name="expected_years"
+placeholder="Expected Years of Schooling "
+required>
+
+</div>
+
+<div class="input-group">
+
+<i class="fa-solid fa-book-open"></i>
+
+<input
+type="number"
+step="any"
+name="mean_years"
+placeholder="Mean Years of Schooling "
+required>
+
+</div>
+
+<div class="input-group">
+
+<i class="fa-solid fa-money-bill-wave"></i>
+
+<input
+type="number"
+step="any"
+name="gni"
+placeholder="Gross National Income Per Capita"
+required>
+
+</div>
+
+<button type="submit">
+
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+
+Predict HDI
+
+</button>
+
+</form>
+
+{% if prediction_text %}
+
+<div class="result">
+
+
+    <h1>{{ prediction_text }}</h1>
+
+    <h3>{{ category }}</h3>
+
+    <hr>
+
+    <h3>💡 Recommendations</h3>
+
+    <ul>
+
+        {% for item in recommendations %}
+
+        <li>{{ item }}</li>
+
+        {% endfor %}
+
+    </ul>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+
+</html>
